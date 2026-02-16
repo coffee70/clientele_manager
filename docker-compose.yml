@@ -1,0 +1,17 @@
+# Start with: docker compose up -d
+# Agent connection: DATABASE_URL="postgres://clientele:clientele@localhost:5432/clientele?sslmode=disable"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: clientele
+      POSTGRES_PASSWORD: clientele
+      POSTGRES_DB: clientele
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
